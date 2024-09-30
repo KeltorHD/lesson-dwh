@@ -1,0 +1,19 @@
+[2024-09-30T16:24:39.810+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-09-30T16:24:39.821+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ELT.fact_run.fact_2 manual__2024-09-30T16:24:36.959689+00:00 [queued]>
+[2024-09-30T16:24:39.827+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ELT.fact_run.fact_2 manual__2024-09-30T16:24:36.959689+00:00 [queued]>
+[2024-09-30T16:24:39.828+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2024-09-30T16:24:39.837+0000] {taskinstance.py:2888} INFO - Executing <Task(PythonOperator): fact_run.fact_2> on 2024-09-30 16:24:36.959689+00:00
+[2024-09-30T16:24:39.843+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1873) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-09-30T16:24:39.845+0000] {standard_task_runner.py:72} INFO - Started process 1879 to run task
+[2024-09-30T16:24:39.845+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'ELT', 'fact_run.fact_2', 'manual__2024-09-30T16:24:36.959689+00:00', '--job-id', '39', '--raw', '--subdir', 'DAGS_FOLDER/load.py', '--cfg-path', '/tmp/tmp41r7gxxg']
+[2024-09-30T16:24:39.847+0000] {standard_task_runner.py:105} INFO - Job 39: Subtask fact_run.fact_2
+[2024-09-30T16:24:39.905+0000] {task_command.py:467} INFO - Running <TaskInstance: ELT.fact_run.fact_2 manual__2024-09-30T16:24:36.959689+00:00 [running]> on host 51a7ea638889
+[2024-09-30T16:24:39.965+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='ELT' AIRFLOW_CTX_TASK_ID='fact_run.fact_2' AIRFLOW_CTX_EXECUTION_DATE='2024-09-30T16:24:36.959689+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-09-30T16:24:36.959689+00:00'
+[2024-09-30T16:24:39.967+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-09-30T16:24:39.996+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-09-30T16:24:40.002+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-09-30T16:24:40.003+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=ELT, task_id=fact_run.fact_2, run_id=manual__2024-09-30T16:24:36.959689+00:00, execution_date=20240930T162436, start_date=20240930T162439, end_date=20240930T162440
+[2024-09-30T16:24:40.027+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-09-30T16:24:40.033+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

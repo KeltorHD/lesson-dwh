@@ -1,0 +1,51 @@
+services:
+  postgres:
+    container_name: postgres-dwh
+    image: postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=DWH
+    networks:
+      - lesson-dwh
+
+  mysql:
+    container_name: mysql-dwh
+    image: mysql:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+    networks:
+      - lesson-dwh
+  
+  mssql:
+    container_name: sqlserver-dwh
+    image: mcr.microsoft.com/mssql/server:latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=passwordStrong1
+    ports:
+      - 1433:1433
+    volumes:
+      - ./mssql_data:/var/opt/mssql
+    networks:
+      - lesson-dwh
+
+networks:
+  lesson-dwh:
+    external: true
